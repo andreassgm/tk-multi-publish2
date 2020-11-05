@@ -29,3 +29,9 @@ def show_dialog(app):
 
     # start ui
     app.engine.show_dialog(display_name, app, AppDialog)
+
+
+def show_panel(app):
+    from .dialog import AppDialog
+
+    return app.engine.show_panel(app._unique_panel_id, "Publish Test", app, AppDialog)

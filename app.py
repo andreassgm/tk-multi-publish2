@@ -44,8 +44,11 @@ class MultiPublish2(sgtk.platform.Application):
         # replace all non alphanumeric characters by '_'
         command_name = re.sub(r"[^0-9a-zA-Z]+", "_", command_name)
 
+        self._unique_panel_id = self.engine.register_panel(tk_multi_publish2.show_panel)
+
         # register command
-        cb = lambda: tk_multi_publish2.show_dialog(self)
+        # cb = lambda: tk_multi_publish2.show_dialog(self)
+        cb = lambda: tk_multi_publish2.show_panel(self)
         menu_caption = "%s..." % display_name
         menu_options = {
             "short_name": command_name,
